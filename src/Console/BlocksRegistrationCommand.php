@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Yard\SkeletonPackage\Console;
+namespace Yard\BlocksRegistration\Console;
 
 use Illuminate\Console\Command;
-use Yard\SkeletonPackage\Facades\Example;
+use Yard\BlocksRegistration\Facades\BlocksRegistration;
 
-class ExampleCommand extends Command
+class BlocksRegistrationCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'example';
+    protected $signature = 'blocksregistration';
 
     /**
      * The console command description.
@@ -29,7 +29,7 @@ class ExampleCommand extends Command
     public function handle(): void
     {
         $this->info(
-            Example::getQuote()
+            BlocksRegistration::getQuote()
         );
     }
 }
