@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Yard\BlocksRegistration\Tests;
+namespace Yard\Block\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use Yard\Block\BlockServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -32,7 +33,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            'Yard\BlocksRegistration\BlocksRegistrationServiceProvider',
+            BlockServiceProvider::class,
         ];
     }
 }
