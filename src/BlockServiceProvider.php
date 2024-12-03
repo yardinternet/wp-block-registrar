@@ -6,7 +6,6 @@ namespace Yard\Block;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Yard\Block\Registrar;
 
 class BlockServiceProvider extends PackageServiceProvider
 {
