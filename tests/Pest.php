@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-use Yard\BlocksRegistration\Tests\TestCase;
+use Yard\Block\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

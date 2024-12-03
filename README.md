@@ -1,12 +1,14 @@
-# Yard wp-blocks-registration
+# wp-block-registrar
 
 [![Code Style](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/format-php.yml/badge.svg?no-cache)](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/format-php.yml)
 [![PHPStan](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/phpstan.yml/badge.svg?no-cache)](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/phpstan.yml)
 [![Tests](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/run-tests.yml/badge.svg?no-cache)](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/run-tests.yml)
 [![Code Coverage Badge](https://github.com/yardinternet/wp-blocks-registration/blob/badges/coverage.svg)](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/badges.yml)
-[![Lines of Code Badge](https://github.com/yardinternet/wp-blocks-registration/blob/badges/lines-of-code.svg)](https://github.com/yardinternet/wp-blocks-registration/actions/workflows/badges.yml)
 
+## Features
 
+- Register client side and server side blocks from config
+See [config](./config/blocks.php) for all configuration options.
 
 ## Requirements
 
@@ -22,14 +24,14 @@ To install this package using Composer, follow these steps:
     ```json
     {
       "type": "vcs",
-      "url": "git@github.com:yardinternet/wp-blocks-registration.git"
+      "url": "git@github.com:yardinternet/wp-block-registrar.git"
     }
     ```
 
 2. Install this package with Composer:
 
     ```sh
-    composer require yard/wp-blocks-registration
+    composer require yard/wp-block-registrar
     ```
 
 3. Run the Acorn WP-CLI command to discover this package:
@@ -41,19 +43,5 @@ To install this package using Composer, follow these steps:
 You can publish the config file with:
 
 ```shell
-wp acorn vendor:publish --provider="Yard\BlocksRegistration\BlocksRegistrationServiceProvider"
-```
-
-## Usage
-
-From a Blade template:
-
-```blade
-@include('wp-blocks-registration::blocksregistration')
-```
-
-From WP-CLI:
-
-```shell
-wp acorn blocksregistration
+wp acorn vendor:publish --provider="Yard\Block\BlockServiceProvider"
 ```

@@ -1,5 +1,5 @@
 {
-	"name": "yard/wp-blocks-registration",
+	"name": "yard/wp-block-registrar",
 	"type": "package",
 	"description": "This is my package wp-blocks-registration",
   "version": "1.0.0",
@@ -24,12 +24,12 @@
 	},
   "autoload": {
 		"psr-4": {
-			"Yard\\BlocksRegistration\\": "src/"
+			"Yard\\Block\\": "src/"
 		}
 	},
   "autoload-dev": {
 		"psr-4": {
-			"Yard\\BlocksRegistration\\Tests\\": "tests/"
+			"Yard\\Block\\Tests\\": "tests/"
 		}
 	},
   "scripts": {
@@ -44,11 +44,8 @@
 	"extra": {
 		"acorn": {
 			"providers": [
-				"Yard\\BlocksRegistration\\BlocksRegistrationServiceProvider"
-			],
-			"aliases": {
-				"BlocksRegistration": "Yard\\BlocksRegistration\\Facades\\BlocksRegistration"
-			}
+				"Yard\\Block\\BlockServiceProvider"
+			]
 		}
 	}
 }
