@@ -1,1 +1,0 @@
-{{ BlocksRegistration::getQuote() }}
