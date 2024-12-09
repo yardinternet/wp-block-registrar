@@ -1,8 +1,7 @@
 {
 	"name": "yard/wp-block-registrar",
 	"type": "package",
-	"description": "This is my package wp-blocks-registration",
-  "version": "1.0.0",
+	"description": "An Acorn package for WordPress block registration.",
 	"license": "MIT",
   "config": {
     "sort-packages": true,
