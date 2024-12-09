@@ -16,15 +16,8 @@ class BlockServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function packageRegistered(): void
-    {
-        $this->app->bind(Registrar::class, function () {
-            return new Registrar();
-        });
-    }
-
     public function packageBooted(): void
     {
-        $this->app->make(Registrar::class);
+        new Registrar();
     }
 }

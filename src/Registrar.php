@@ -19,16 +19,19 @@ class Registrar
         foreach ($blocks as $block) {
             /** @var string|\WP_Block_Type */
             $blockType = $block['blockType'];
+
+            if (is_string($blockType) && ! file_exists($blockType)) {
+                $blockTypeAsset = asset($blockType);
+                if ($blockTypeAsset->exists() ) {
+                    $blockType = $blockTypeAsset->path();
+                }
+            }
+
             /** @var array<string,mixed> */
             $blockArgs = $block['args'];
 
-            $args = new \Args\WP_Block_Type();
-            $args->fromArray($blockArgs);
-
-
             // @phpstan-ignore argument.type
-            \register_block_type($blockType, $args->toArray());
-
+            \register_block_type($blockType, $blockArgs);
         }
     }
 }
