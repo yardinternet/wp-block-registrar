@@ -8,14 +8,14 @@ return [
      *
      * @see https://developer.wordpress.org/reference/functions/register_block_type/
      *
-     * @param string|\WP_Block_Type $blockType The block type name including namespace, the block type object or the path to the block type file.
+     * @param string|\WP_Block_Type $block_type The block type name including namespace, the block type object or the path to the block type file.
      */
     // 'client-side-block' => [
-    //     'blockType' => 'client-side-block,
+    //     'block_type' => 'client-side-block,
     //     'args' => [],
     // ],
     // 'server-side-block' => [
-    //     'blockType' => 'server-side-block',
+    //     'block_type' => 'server-side-block',
     //     'args' => [
     //         'render_callback' => '__return_empty_string',
     //     ],

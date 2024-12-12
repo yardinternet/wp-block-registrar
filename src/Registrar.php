@@ -18,11 +18,11 @@ class Registrar
 
         foreach ($blocks as $block) {
             /** @var string|\WP_Block_Type */
-            $blockType = $block['blockType'];
+            $blockType = $block['block_type'];
 
             if (is_string($blockType) && ! file_exists($blockType)) {
                 $blockTypeAsset = asset($blockType);
-                if ($blockTypeAsset->exists() ) {
+                if ($blockTypeAsset->exists()) {
                     $blockType = $blockTypeAsset->path();
                 }
             }
