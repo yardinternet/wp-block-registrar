@@ -14,7 +14,8 @@ class Registrar
         add_action('admin_notices', $this->adminErrors(...));
     }
 
-    public function adminErrors(): void {
+    public function adminErrors(): void
+    {
         foreach ($this->errors as $error) {
             wp_admin_notice($error, ['type'=> 'error']);
         }
