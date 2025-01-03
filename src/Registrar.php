@@ -33,7 +33,7 @@ class Registrar
                 $blockTypeAsset = asset($blockType);
 
                 if (! $blockTypeAsset->exists()) {
-                    $this->errors[] = "wp-block-registrar: {$blockType} block can not be registered. This because the file does not exist";
+                    $this->errors[] = "wp-block-registrar: The {$blockType} block cannot be registered because the file does not exist.";
 
                     continue;
                 }
