@@ -6,9 +6,18 @@ namespace Yard\Block;
 
 class Registrar
 {
+    private array $errors = [];
+
     public function __construct()
     {
         add_action('init', $this->registerBlocks(...));
+        add_action('admin_notices', $this->adminErrors(...));
+    }
+
+    public function adminErrors(): void {
+        foreach ($this->errors as $error) {
+            wp_admin_notice($error, ['type'=> 'error']);
+        }
     }
 
     public function registerBlocks(): void
@@ -22,9 +31,14 @@ class Registrar
 
             if (is_string($blockType) && ! file_exists($blockType)) {
                 $blockTypeAsset = asset($blockType);
-                if ($blockTypeAsset->exists()) {
-                    $blockType = $blockTypeAsset->path();
+
+                if (! $blockTypeAsset->exists()) {
+                    $this->errors[] = "wp-block-registrar: {$blockType} block can not be registered. This because the file does not exist";
+
+                    continue;
                 }
+
+                $blockType = $blockTypeAsset->path();
             }
 
             /** @var array<string,mixed> */
