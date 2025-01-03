@@ -6,6 +6,7 @@ namespace Yard\Block;
 
 class Registrar
 {
+    /** @var array<int, string>  */
     private array $errors = [];
 
     public function __construct()
