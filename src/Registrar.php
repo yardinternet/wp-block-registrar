@@ -32,15 +32,13 @@ class Registrar
 			$blockType = $block['block_type'];
 
 			if (is_string($blockType) && ! file_exists($blockType)) {
-				$blockTypeAsset = asset($blockType);
+                $blockType = get_theme_file_path('public/' . $blockType);
 
-				if (! $blockTypeAsset->exists()) {
+				if (! file_exists($blockType)) {
 					$this->errors[] = "wp-block-registrar: The {$blockType} block cannot be registered because the file does not exist.";
 
 					continue;
 				}
-
-				$blockType = $blockTypeAsset->path();
 			}
 
 			/** @var array<string,mixed> */
