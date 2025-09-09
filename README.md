@@ -13,7 +13,7 @@ See [config](./config/blocks.php) for all configuration options.
 ## Requirements
 
 - [Sage](https://github.com/roots/sage) >= 10.0
-- [Acorn](https://github.com/roots/acorn) >= 4.0
+- [Acorn](https://github.com/roots/acorn) >= 5.0
 
 ## Installation
 
