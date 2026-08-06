@@ -27,7 +27,18 @@ class Registrar
 		/** @var array<string, array<string,mixed>> */
 		$blocks = config('blocks');
 
-		foreach ($blocks as $block) {
+		foreach ($blocks as $blockName => $block) {
+			/** @var array<string,mixed> */
+			$blockArgs = $block['args'];
+
+			if ($this->shouldAutoRegister($blockArgs)) {
+				$namespace = wp_get_theme()->get('TextDomain') ?? 'theme';
+
+				\register_block_type("{$namespace}/{$blockName}", $blockArgs);
+
+				continue;
+			}
+
 			/** @var string|\WP_Block_Type */
 			$blockType = $block['block_type'];
 
@@ -41,11 +52,13 @@ class Registrar
 				}
 			}
 
-			/** @var array<string,mixed> */
-			$blockArgs = $block['args'];
-
 			// @phpstan-ignore argument.type
 			\register_block_type($blockType, $blockArgs);
 		}
+	}
+
+	private function shouldAutoRegister(array $blockArgs): bool
+	{
+		return ! empty($blockArgs['supports']['autoRegister']);
 	}
 }
