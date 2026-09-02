@@ -32,7 +32,7 @@ class Registrar
 			$blockArgs = $block['args'];
 
 			if ($this->shouldAutoRegister($blockArgs)) {
-				$namespace = wp_get_theme()->get('TextDomain') ?? 'theme';
+				$namespace = wp_get_theme()->get('TextDomain') ?: 'theme';
 
 				\register_block_type("{$namespace}/{$blockName}", $blockArgs);
 
@@ -59,6 +59,6 @@ class Registrar
 
 	private function shouldAutoRegister(array $blockArgs): bool
 	{
-		return ! empty($blockArgs['supports']['autoRegister']);
+		return ! empty($blockArgs['supports']['autoRegister'] ?? null);
 	}
 }
